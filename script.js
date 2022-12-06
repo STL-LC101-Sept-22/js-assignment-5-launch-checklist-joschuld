@@ -1,33 +1,25 @@
 // Write your JavaScript code here!
 
-const { formSubmission } = require("./scriptHelper");
-const { validateInput } = require("./scriptHelper");
+// const { formSubmission } = require("./scriptHelper");
+// const { validateInput } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
-    let form = document.querySelector('form')
-    
+    let form = document.querySelector("form")
     let list = document.getElementById('faultyItems');
-
 
     form.addEventListener('submit', function(event){
         event.preventDefault();
         alert('submit clicked');
 
-        //gather user input
-        let pilotInput = document.querySelector('input[name = pilotName]');
-        let copilotInput = document.querySelector('input[name = copilotName]');
-        let fuelLevelInput = document.querySelector('input[name = fuelLevel]');
-        let cargoLevelInput = document.querySelector('input[name = cargoLevel]');
+        //user input to be sent to formSubmission fxn
+        let pilot = document.querySelector('input[name = pilotName]').value;
+        let copilot = document.querySelector('input[name = copilotName]').value;
+        let fuelLevel = document.querySelector('input[name = fuelLevel]').value;
+        let cargoMass = document.querySelector('input[name = cargoMass]').value;
 
-        //turn inputs into fxn arguments
-        let pilot = pilotInput.value;
-        let copilot = copilotInput.value;
-        let fuelLevel = fuelLevelInput.value;
-        let cargoLevel = cargoLevelInput.value;
-    
+        // console.log(pilot)
 
-        
-        formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
+        formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass);
         
     });
 

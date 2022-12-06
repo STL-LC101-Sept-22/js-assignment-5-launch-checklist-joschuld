@@ -39,11 +39,11 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
 
     // validate arguements pass thru as related to the validateInput fxn
-    
+
     if(validateInput(pilot) === 'Empty' || 
     validateInput(copilot) === 'Empty' || 
     validateInput(fuelLevel) === 'Empty' || 
-    validateInput(cargoLevel === 'Empty')) {
+    validateInput(cargoLevel) === 'Empty') {
         return alert('All fields are required')
     } else if (validateInput(pilot) === 'Is a Number' || validateInput(copilot) === 'Is a Number'){
         return alert('Names cannot have numbers')
