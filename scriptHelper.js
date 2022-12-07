@@ -51,6 +51,40 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         return alert('Fuel and Cargo levels must be numbers')
     }
 
+    //names first, add loop/conditionals for fuel and cargo after?
+    // keep visiblity hidden until fuel/cargo passes
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`;
+    copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch.`;
+    list.style.visibility = 'hidden';
+
+    if(fuelLevel < 10000) {
+        list.style.visibility = 'visible'
+        fuelStatus.innerHTML = 'There is not enough fuel for the journey'
+        launchStatus.innerHTML = 'Shuttle not ready for launch'
+        launchStatus.style.color = 'red'
+    }
+
+    else if(cargoLevel > 10000){
+        list.style.visibility = 'visible'
+        cargoStatus.innerHTML = 'There is too much mass for the shuttle to take off'
+        launchStatus.innerHTML = 'Shuttle not ready for launch'
+        launchStatus.style.color = 'red'
+    }
+
+    else if(fuelLevel > 10000 && cargoLevel < 10000) {
+        list.style.visibility = 'visible'
+        launchStatus.innerHTML = 'Shuttle is ready for launch'
+        launchStatus.style.color = 'green'
+
+        fuelStatus.innerHTML = 'There is enough fuel for the journey'
+        cargoStatus.innerHTML = 'There is low enough mass for the journey'
+
+
+    }
+
+    
+
+
 
 }
 

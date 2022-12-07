@@ -5,7 +5,7 @@
 
 window.addEventListener("load", function() {
     let form = document.querySelector("form")
-    let list = document.getElementById('faultyItems');
+    // let list = document.getElementById('faultyItems');
 
     form.addEventListener('submit', function(event){
         event.preventDefault();
@@ -16,8 +16,8 @@ window.addEventListener("load", function() {
         let copilot = document.querySelector('input[name = copilotName]').value;
         let fuelLevel = document.querySelector('input[name = fuelLevel]').value;
         let cargoMass = document.querySelector('input[name = cargoMass]').value;
-
-        // console.log(pilot)
+        let list = document.getElementById('faultyItems');
+        
 
         formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass);
         
