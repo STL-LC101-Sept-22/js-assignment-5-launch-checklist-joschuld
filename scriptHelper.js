@@ -2,18 +2,19 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-   // Here is the HTML formatting for our mission target div.
-   /*
+    let missionTarget = document.getElementById('missionTarget')
+    missionTarget.innerHTML = `
+   
                 <h2>Mission Destination</h2>
                 <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
+                    <li>Name: ${name}</li>
+                    <li>Diameter: ${diameter}</li>
                     <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
+                    <li>Distance from Earth: ${distance}</li>
+                    <li>Number of Moons: ${moons}</li>
                 </ol>
-                <img src="">
-   */
+                <img src="${imageUrl}">
+   `
 }
 
 function validateInput(testInput) {
@@ -52,7 +53,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
 
     //names first, add loop/conditionals for fuel and cargo after?
-    // keep visiblity hidden until fuel/cargo passes
+    // keep visiblity hidden until fuel/cargo conditions pass
     pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`;
     copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch.`;
     list.style.visibility = 'hidden';
@@ -91,13 +92,20 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
+    planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+        return response.json()
         });
-
+    // console.log(planetsReturned)
     return planetsReturned;
+
 }
 
+//need random index
 function pickPlanet(planets) {
+    // console.log(planets.length)
+    randomIndex = Math.floor(Math.random() * planets.length);
+    return planets[randomIndex]
+    
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
