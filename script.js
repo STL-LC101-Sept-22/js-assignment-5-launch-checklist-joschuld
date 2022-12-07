@@ -12,7 +12,7 @@ window.addEventListener("load", function() {
 
     form.addEventListener('submit', function(event){
         event.preventDefault();
-        alert('submit clicked');
+        // alert('submit clicked');
 
         //user input to be sent to formSubmission fxn
         let pilot = document.querySelector('input[name = pilotName]').value;
