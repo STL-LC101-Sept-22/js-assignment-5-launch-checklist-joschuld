@@ -54,31 +54,31 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
     //names first, add loop/conditionals for fuel and cargo after?
     // keep visiblity hidden until fuel/cargo conditions pass
-    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`;
-    copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch.`;
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
     list.style.visibility = 'hidden';
 
     if(fuelLevel < 10000) {
         list.style.visibility = 'visible'
-        fuelStatus.innerHTML = 'There is not enough fuel for the journey'
-        launchStatus.innerHTML = 'Shuttle not ready for launch'
-        launchStatus.style.color = 'red'
+        fuelStatus.innerHTML = 'Fuel level too low for launch'
+        launchStatus.innerHTML = 'Shuttle Not Ready for launch'
+        launchStatus.style.color = 'rgb(199,37,78)'
     }
 
     else if(cargoLevel > 10000){
         list.style.visibility = 'visible'
-        cargoStatus.innerHTML = 'There is too much mass for the shuttle to take off'
-        launchStatus.innerHTML = 'Shuttle not ready for launch'
-        launchStatus.style.color = 'red'
+        cargoStatus.innerHTML = 'Cargo mass too heavy for launch'
+        launchStatus.innerHTML = 'Shuttle Not Ready for launch'
+        launchStatus.style.color = 'rgb(199,37,78)'
     }
 
     else if(fuelLevel > 10000 && cargoLevel < 10000) {
         list.style.visibility = 'visible'
-        launchStatus.innerHTML = 'Shuttle is ready for launch'
+        launchStatus.innerHTML = 'Shuttle is Ready for Launch'
         launchStatus.style.color = 'green'
 
-        fuelStatus.innerHTML = 'There is enough fuel for the journey'
-        cargoStatus.innerHTML = 'There is low enough mass for the journey'
+        fuelStatus.innerHTML = 'Fuel level high enough for launch'
+        cargoStatus.innerHTML = 'Cargo mass low enough for launch'
 
 
     }
