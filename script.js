@@ -8,11 +8,9 @@ window.addEventListener("load", function() {
     let form = document.querySelector("form")
     let list = document.getElementById('faultyItems');
     list.style.visibility = 'hidden'
-    
 
     form.addEventListener('submit', function(event){
         event.preventDefault();
-        // alert('submit clicked');
 
         //user input to be sent to formSubmission fxn
         let pilot = document.querySelector('input[name = pilotName]').value;
@@ -20,10 +18,8 @@ window.addEventListener("load", function() {
         let fuelLevel = document.querySelector('input[name = fuelLevel]').value;
         let cargoMass = document.querySelector('input[name = cargoMass]').value;
         let list = document.getElementById('faultyItems');
-        
 
         formSubmission(document, list, pilot, copilot, fuelLevel, cargoMass);
-        
     });
 
    let listedPlanets;
